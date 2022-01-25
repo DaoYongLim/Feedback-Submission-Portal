@@ -1,14 +1,7 @@
 import React from "react";
 import Chart from "react-apexcharts";
-import { getCatFacts } from "../services/API";
 
 function SubmissionPage() {
-  const getApiData = () => {
-    getCatFacts().then((res) => {
-      console.log(res);
-    });
-  };
-
   const series = [
     {
       name: "series-1",

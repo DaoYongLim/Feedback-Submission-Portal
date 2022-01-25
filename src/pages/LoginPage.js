@@ -2,7 +2,6 @@ import {
   TextField,
   Button,
   Grid,
-  createTheme,
   Paper,
   Box,
   Container,
@@ -10,23 +9,21 @@ import {
 } from "@material-ui/core";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAppContext } from "../lib/ContextLib";
 
 function LoginPage() {
   const [loginId, setLoginId] = useState("");
   const [password, setPassword] = useState("");
+  const { userHasAuthenticated } = useAppContext();
   const navigate = useNavigate();
-
-  const textStyle = {
-    padding: 10,
-  };
 
   const Submit = (e) => {
     if (password === "123") {
+      userHasAuthenticated(true);
+      window.sessionStorage.setItem("auth", true);
       navigate("/portal");
     }
   };
-
-  const theme = createTheme();
 
   return (
     <Container
@@ -80,55 +77,6 @@ function LoginPage() {
         </Box>
       </Paper>
     </Container>
-    // <div
-    // style={{
-    //   height: "100vh",
-    //   alignItems: "center",
-    //   justifyContent: "center",
-    //   display: "flex",
-    // }}
-    // >
-    //   {/* <Grid
-    //     item
-    //     xs={6}
-    //     component={Paper}
-    //     elevation={6}
-    //     square
-    //     style={{ paddingLeft: 25 }}
-    //   >
-    //     <h1>Login Page</h1>
-    //     <Box component="form" noValidate onSubmit={Submit} sx={{ mt: 1 }}>
-    //       <Grid>
-    //         <div>
-    //           <TextField
-    //             variant="outlined"
-    //             id="LoginID"
-    //             label="Enter ID"
-    //             value={loginId}
-    //             onChange={(e) => {
-    //               setLoginId(e.target.value);
-    //             }}
-    //           />
-    //         </div>
-    //       </Grid>
-    //       <TextField
-    //         variant="outlined"
-    //         id="Password"
-    //         label="Enter Password"
-    //         value={password}
-    //         onChange={(e) => {
-    //           setPassword(e.target.value);
-    //         }}
-    //       />
-    //       <br />
-    //       <br />
-    //       <Button variant="contained" type="submit">
-    //         Login
-    //       </Button>
-    //     </Box>
-    //     <br />
-    //   </Grid>
-    // </div> */}
   );
 }
 

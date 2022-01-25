@@ -1,14 +1,10 @@
-import AppBar from "../components/AppBar";
-import Drawer from "../components/Drawer";
+import React from "react";
 
 function Portal() {
   return (
-    //<AppBar>
-    <Drawer>
-      <div>
-        <label>Test</label>
-      </div>
-    </Drawer>
+    <div>
+      <label>Testrewrwere</label>
+    </div>
   );
 }
 export default Portal;

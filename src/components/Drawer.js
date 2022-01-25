@@ -1,36 +1,32 @@
-import * as React from "react";
-import { Drawer, Button } from "@material-ui/core";
+import { Drawer, List } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import ListItems from "../listItems/ListItems";
 
-function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
+function TemporaryDrawer(props) {
+  const [state, setState] = useState({
+    left: props.valueSend,
   });
 
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (
-      event.type === "keydown" &&
-      (event.key === "Tab" || event.key === "Shift")
-    ) {
-      return;
-    }
+  useEffect(() => {
+    setState({ ...state, left: props.valueSend });
+  }, []);
 
+  const toggleDrawer = (anchor, open) => () => {
     setState({ ...state, [anchor]: open });
+    props.clickValue();
   };
 
   return (
     <div>
-      {["left", "right", "top", "bottom"].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>Test</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            <label> Hello</label>
-          </Drawer>
-        </React.Fragment>
-      ))}
+      <Drawer
+        anchor={"left"}
+        open={state.left}
+        onClose={toggleDrawer("left", false)}
+      >
+        <List>
+          <ListItems itemClick={toggleDrawer("left", false)} />
+        </List>
+      </Drawer>
     </div>
   );
 }

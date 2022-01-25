@@ -1,23 +1,33 @@
 import React from "react";
-import { BrowserRouter, Route, Routes as Routess } from "react-router-dom";
+import { Route, Routes as Routess } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SubmissionPage from "../pages/SubmissionPage";
 import Portal from "../pages/Portal";
 
-const routes = [
-  { path: "/", element: <LoginPage /> },
+const componentRoutes = [
   { path: "/submissionPage", element: <SubmissionPage /> },
   { path: "/portal", element: <Portal /> },
+  { path: "/", element: <Portal /> },
 ];
 
-function Routes() {
+const loginRoutes = [{ path: "/", element: <LoginPage /> }];
+
+export function ComponentRoutes() {
   return (
     <Routess>
-      {routes.map(({ path, element }) => {
+      {componentRoutes.map(({ path, element }) => {
         return <Route key={path} path={path} element={element} />;
       })}
     </Routess>
   );
 }
 
-export default Routes;
+export function LoginRoutes() {
+  return (
+    <Routess>
+      {loginRoutes.map(({ path, element }) => {
+        return <Route key={path} path={path} element={element} />;
+      })}
+    </Routess>
+  );
+}
