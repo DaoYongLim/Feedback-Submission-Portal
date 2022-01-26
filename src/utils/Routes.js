@@ -1,11 +1,11 @@
 import React from "react";
 import { Route, Routes as Routess } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
-import SubmissionPage from "../pages/SubmissionPage";
+import CreateSubmissionPage from "../pages/CreateSubmissionPage";
 import Portal from "../pages/Portal";
 
 const componentRoutes = [
-  { path: "/submissionPage", element: <SubmissionPage /> },
+  { path: "/create_submission", element: <CreateSubmissionPage /> },
   { path: "/portal", element: <Portal /> },
   { path: "/", element: <Portal /> },
 ];

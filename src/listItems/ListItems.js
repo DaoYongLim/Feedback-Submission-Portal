@@ -22,7 +22,7 @@ function ListItems(props) {
         <ListItemText primary="Submission Page" onClick={Sample2} />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="Sample 3" />
+        <ListItemText primary="Submission Status" />
       </ListItem>
     </div>
   );
