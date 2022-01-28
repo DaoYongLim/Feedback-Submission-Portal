@@ -24,6 +24,10 @@ function ButtonAppBar(props) {
     navigate("/");
   };
 
+  const homePage = () => {
+    navigate("/portal");
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
@@ -38,9 +42,12 @@ function ButtonAppBar(props) {
           >
             <MenuIcon fontSize="large" />
           </IconButton>
-          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
+          <Button
+            style={{ fontSize: "22px", color: "white" }}
+            onClick={homePage}
+          >
             Portal
-          </Typography>
+          </Button>
           <Button
             style={{
               marginLeft: "auto",
