@@ -27,7 +27,7 @@ function ButtonAppBar(props) {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar style={{ minHeight: "70px" }}>
           <IconButton
             size="medium"
             edge="start"
@@ -36,9 +36,9 @@ function ButtonAppBar(props) {
             sx={{ mr: 2 }}
             onClick={menuHandler}
           >
-            <MenuIcon />
+            <MenuIcon fontSize="large" />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
             Portal
           </Typography>
           <Button

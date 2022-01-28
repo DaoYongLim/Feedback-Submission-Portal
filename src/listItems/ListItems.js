@@ -5,24 +5,35 @@ import { useNavigate } from "react-router-dom";
 function ListItems(props) {
   const navigate = useNavigate();
 
-  const Sample1 = (e) => {
+  const navHome = (e) => {
     navigate("/portal");
     props.itemClick();
   };
-  const Sample2 = (e) => {
-    navigate("/submissionPage");
+  const navSubmissionCreate = (e) => {
+    navigate("/create_submission");
     props.itemClick();
   };
+  const navSubmissionStatus = (e) => {
+    navigate("/submission_status");
+    props.itemClick();
+  };
+
   return (
     <div>
       <ListItem button>
-        <ListItemText primary="Home" onClick={Sample1} />
+        <ListItemText primary="Home Page" onClick={navHome} />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="Submission Page" onClick={Sample2} />
+        <ListItemText
+          primary="Create Submission Form"
+          onClick={navSubmissionCreate}
+        />
       </ListItem>
       <ListItem button>
-        <ListItemText primary="Submission Status" />
+        <ListItemText
+          primary="Submission Form Status"
+          onClick={navSubmissionStatus}
+        />
       </ListItem>
     </div>
   );
