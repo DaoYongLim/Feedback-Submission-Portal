@@ -1,4 +1,3 @@
-import SubmissionTable from "../components/SubmissionTable";
 import React, { useState } from "react";
 import {
   Button,
@@ -32,15 +31,15 @@ function CreateSubmission() {
     <div>
       <Container
         style={{
-          height: "80vh",
-          alignItems: "end",
+          height: "50vh",
+          alignItems: "center",
           display: "grid",
           maxWidth: "1700px",
         }}
       >
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={3}>
-            <Grid item xs={0}>
+            <Grid item>
               <Typography variant="h5">Name:</Typography>
             </Grid>
             <Grid item xs={5}>
@@ -56,7 +55,7 @@ function CreateSubmission() {
                 }}
               />
             </Grid>
-            <Grid item xs={0}>
+            <Grid item>
               <Typography variant="h5">Email:</Typography>
             </Grid>
             <Grid item xs={5}>
@@ -72,7 +71,7 @@ function CreateSubmission() {
                 }}
               />
             </Grid>
-            <Grid item xs={0}>
+            <Grid item>
               <Typography variant="h5">Phone:</Typography>
             </Grid>
             <Grid item xs={5}>
@@ -88,7 +87,7 @@ function CreateSubmission() {
                 }}
               />
             </Grid>
-            <Grid item xs={0}>
+            <Grid item>
               <Typography variant="h5">Agency:</Typography>
             </Grid>
             <Grid item xs={5}>
@@ -109,9 +108,9 @@ function CreateSubmission() {
             </Grid>
             <Grid item xs={12}>
               <TextField
-                style={{ width: 1000 }}
+                style={{ width: 1350 }}
                 multiline={true}
-                rows={4}
+                rows={6}
                 variant="outlined"
                 value={feedback}
                 id="Feedback"
@@ -121,17 +120,22 @@ function CreateSubmission() {
                 }}
               />
             </Grid>
-            <Grid item xs={0}>
-              <Button variant="contained" onClick={ClearForm}>
+            <Grid item xs={9}>
+              <Button
+                variant="contained"
+                style={{ float: "right" }}
+                onClick={ClearForm}
+              >
                 Clear
               </Button>
             </Grid>
-            <Grid item xs={2}>
-              <Button variant="contained">Submit</Button>
+            <Grid item>
+              <Button variant="contained" style={{ float: "right" }}>
+                Submit
+              </Button>
             </Grid>
           </Grid>
         </Box>
-        <SubmissionTable />
       </Container>
     </div>
   );
